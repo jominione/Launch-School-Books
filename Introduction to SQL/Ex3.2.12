@@ -1,0 +1,11 @@
+-- Write a query that will return the first and last names of all the 
+-- celebrities who both sing and act.
+
+-- Hint: You can use parentheses to group sub-clauses together.
+
+-- Solution:
+
+SELECT first_name, last_name
+FROM celebrities
+WHERE occupation LIKE '%Singer%'
+AND (occupation LIKE '%Actor%' OR occupation LIKE '%Actress%');
