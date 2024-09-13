@@ -1,0 +1,37 @@
+-- Change the celebrities table so that the date_of_birth column uses a data 
+-- type that holds an actual date value rather than a string. Also ensure 
+-- that this column must hold a value.
+
+-- Hint: When converting data types, if there is no implicit conversion from 
+-- the old type to the new type you need to add a USING clause to the 
+-- statement, with an expression that specifies how to compute the new column 
+-- value from the old.
+
+-- Sometimes these expressions can be quite complex, but a simple form would 
+-- be something like:
+
+-- ALTER COLUMN column_name
+-- TYPE new_data_type
+-- USING column_name::new_data_type
+
+-- Here, the USING clause tells PostgreSQL to convert the values of a column 
+-- (column_name) to a different data type (new_data_type). In this problem, 
+-- we want to convert the date_of_birth column from strings to dates.
+
+-- Solution:
+
+ALTER TABLE celebrities
+  ALTER COLUMN date_of_birth TYPE date
+    USING date_of_birth::date,
+  ALTER COLUMN date_of_birth SET NOT NULL;
+
+-- Discussion:
+
+-- Here, we could either execute two separate statemnents, or use a single
+-- statement which combines the actions. Unlike our earlier example with
+-- RENAME, multiple, comma-separated, ALTER COLUMN actions can be combined
+-- into one ALTER TABLE statement.
+
+-- We also need to add the USING clause to our statement altering the column's
+-- data type, since there is no implicit conversion (or cast) from the varchar
+-- data type to the date data type.

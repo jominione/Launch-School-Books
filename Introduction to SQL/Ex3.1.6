@@ -1,0 +1,11 @@
+-- Look at the schema of the celebrities table. What do you think will happen 
+-- if we try to insert the following data?
+
+-- | First Name | Last Name | Occupation	                        | D.O.B.       | Deceased
+-- |------------|-----------|-------------------------------------|--------------|----------
+-- | Madonna    |          	| Singer, Actress                     | '08/16/1958' | false
+-- | Prince     |           | Singer, Songwriter, Musician, Actor | '06/07/1958' | true
+
+-- Solution:
+
+-- Will raise an error as 'Last Name' column has constraint that is NOT NULL.

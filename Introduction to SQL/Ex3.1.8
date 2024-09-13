@@ -1,0 +1,25 @@
+-- Check the schema of the celebrities table. What would happen if we specify 
+-- a NULL value for deceased column, such as with the data below?
+
+-- | First Name | Last Name | Occupation	                        | D.O.B.       | Deceased
+-- |------------|-----------|-------------------------------------|--------------|----------
+-- | Elvis      | Presley  	| Singer, Muscian, Actor              | '01/08/1935' | NULL
+
+-- Solution [Wrong]: Will raise an error because 'Deceased' column is data type 
+-- boolean.
+
+-- We know that if we omit the column from our column list then the default 
+-- value will be used, but what if we actually specify the NULL as the value 
+-- for a column with a DEFAULT constraint? Here, PostgreSQL actually sets a 
+-- NULL value for that column rather than using the default.
+
+INSERT INTO celebrities (first_name, last_name, occupation, date_of_birth, deceased)
+                 VALUES ('Elvis', 'Presley', 'Singer, Musician, Actor', '1935-08-01', NULL);
+
+-- If you select all data from the celebrities table, you'll see that the 
+-- deceased column for Elvis Presley is null.
+
+-- Generally you want to avoid boolean columns being able to have NULL values, 
+-- since booleans, by their nature, should only have two states true and false. 
+-- Throwing NULL into the mix creates three possible states. This is sometimes 
+-- called the Three State Boolean problem or the Three Valued-logic problem.

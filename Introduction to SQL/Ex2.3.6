@@ -1,0 +1,13 @@
+-- Change the animals table so that the binomial_name column cannot contain 
+-- duplicate values.
+
+-- Hint: You will need to use the table constraint form and specify a 
+-- particular column as part of the constraint clause:
+
+-- ALTER TABLE table_name
+--  ADD CONSTRAINT constraint_name constraint_type
+--  (column_name);
+
+-- Solution:
+
+ALTER TABLE animals ADD CONSTRAINT unique_binomial_name UNIQUE (binomial_name);

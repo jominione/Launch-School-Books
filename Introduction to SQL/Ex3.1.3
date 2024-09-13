@@ -1,0 +1,18 @@
+-- Add an entry to the celebrities table for the singer and songwriter Bruce 
+-- Springsteen, who was born on September 23rd 1949 and is still alive.
+
+-- Hint: PostgreSQL can accept date data in many different formats, including:
+
+-- 1999-01-08
+-- 1999-Jan-08
+-- Jan-08-1999
+-- 08-Jan-1999
+-- 99-Jan-08
+-- 08-Jan-99
+-- Jan-08-99
+-- 19990108
+
+-- Solution:
+
+INSERT INTO celebrities (first_name, last_name, occupation, date_of_birth)
+  VALUES ('Bruce', 'Springsteen', 'Singer, Songwriter', '1949-09-23');
