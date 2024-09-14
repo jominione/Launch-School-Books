@@ -1,0 +1,25 @@
+-- Examine the data below:
+
+-- | Album Name        |	Released         |	Genre                           |	Label                     |	Singer Name
+-- |-------------------|-------------------|----------------------------------|---------------------------|-------------------
+-- | Born to Run       |	August 25, 1975  |	Rock and roll                   |	Columbia                  |	Bruce Springsteen
+-- | Purple Rain       |	June 25, 1984    |	Pop, R&B, Rock                  |	Warner Bros               |	Prince
+-- | Born in the USA   |	June 4, 1984     |	Rock and roll, pop              |	Columbia                  |	Bruce Springsteen
+-- | Madonna           |	July 27, 1983    |	Dance-pop, post-disco           |	Warner Bros               |	Madonna
+-- | True Blue         |	June 30, 1986    |	Dance-pop, Pop                  |	Warner Bros               |	Madonna
+-- | Elvis             |	October 19, 1956 |	Rock and roll, Rhythm and Blues |	RCA Victor                |	Elvis Presley
+-- | Sign o' the Times |	March 30, 1987   |	Pop, R&B, Rock, Funk            |	Paisley Park, Warner Bros |	Prince
+-- | G.I. Blues        |	October 1, 1960  |	Rock and roll, Pop              | RCA Victor                |	Elvis Presley
+
+-- We want to create an albums table to hold all the above data except the 
+-- singer name, and create a reference from the albums table to the singers 
+-- table to link each album to the correct singer. Write the necessary SQL 
+-- statements to do this and to populate the table with data. Assume Album 
+-- Name, Genre, and Label can hold strings up to 100 characters. Include an 
+-- auto-incrementing id column in the albums table.
+
+-- Hint: The column of the singers table being referenced by the Foreign key 
+-- column in the albums table will need to have a UNIQUE constraint.
+
+-- Solution:
+

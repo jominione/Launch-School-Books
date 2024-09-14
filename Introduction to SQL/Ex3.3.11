@@ -1,0 +1,8 @@
+-- Write a query to return each unique conservation status code alongside 
+-- the number of animals that have that code.
+
+-- Solution:
+
+SELECT conservation_status, count(id)
+FROM animals
+GROUP BY conservation_status;

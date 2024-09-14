@@ -1,0 +1,24 @@
+-- To associate customers with products, we need to do two more things:
+
+-- 1. Alter or replace the orders table so that we can associate a customer 
+      with one or more orders (we also want to record an order status in this 
+      table).
+-- 2. Create an order_items table so that an order can have one or more 
+      products associated with it.
+
+-- Based on the order descriptions below, amend and create the tables as 
+-- necessary and populate them with the appropriate data.
+
+-- James has one order, consisting of a Chicken Burger, Fries, Onion Rings, 
+-- and a Lemonade. It has a status of 'In Progress'.
+
+-- Natasha has two orders. The first consists of a Cheeseburger, Fries, and 
+-- a Cola, and has a status of 'Placed'; the second consists of a Double Deluxe 
+-- Burger, a Cheeseburger, two sets of Fries, Onion Rings, a Chocolate Shake 
+-- and a Vanilla Shake, and has a status of 'Complete'.
+
+-- Aaron has one order, consisting of an LS Burger and Fries. It has a status 
+-- of 'Placed'.
+
+-- Assume that the order_status field of the orders table can hold strings 
+-- of up to 20 characters.

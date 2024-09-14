@@ -1,0 +1,15 @@
+-- Change the name of the celebrities table to singers, and remove anyone 
+-- who isn't a singer.
+
+-- Hint: There is a NOT LIKE operator which works in the same way as the LIKE 
+-- operator except it matches rows where the search string is not present 
+-- in the overall string.
+
+-- Solution:
+
+ALTER TABLE celebrities 
+RENAME TO singer;
+
+DELETE FROM singer
+WHERE occupation 
+NOT LIKE '%Singer%';

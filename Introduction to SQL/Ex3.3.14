@@ -1,0 +1,9 @@
+-- Write a query that returns the number of orders that include Fries and 
+-- the number of orders that include Onion Rings.
+
+-- Solution:
+
+SELECT side, count(id)
+FROM orders
+WHERE side = 'Fries' OR side = 'Onion Rings'
+GROUP BY side;
