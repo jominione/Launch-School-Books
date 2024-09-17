@@ -22,3 +22,30 @@ id | customer_name  |         burger          |    side     |      drink      | 
 
 -- Solution:
 
+\c ls_burger
+
+CREATE TABLE customers (
+  id serial,
+  customer_name varchar(100),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE email_addresses (
+  customer_id integer,
+  email_addresses varchar(100) UNIQUE,
+  PRIMARY KEY (customer_id),
+  FOREIGN KEY (customer_id)
+    REFERENCES customers(id)
+    ON DELETE CASCADE
+);
+
+INSERT INTO customers (customer_name)
+VALUES ('Natasha O''Shea'),
+       ('James Bergman'),
+       ('Aaron Muller');
+
+SELECT * FROM customers;
+
+INSERT INTO email_addresses (customer_id, email_addresses)
+VALUES (1, 'natasha@osheafamily.com'), 
+       (2, 'james1998@email.com');
