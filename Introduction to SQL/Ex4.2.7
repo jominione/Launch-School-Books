@@ -1,0 +1,11 @@
+-- Connect to the ls_burger database. Return a list of all orders and their 
+-- associated product items.
+
+-- Solution:
+
+\c ls_burger
+
+SELECT orders.*, products.*
+FROM orders
+JOIN order_items ON orders.id = order_items.order_id
+JOIN products ON order_items.product_id = products.id;

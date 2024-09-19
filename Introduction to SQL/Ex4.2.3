@@ -1,0 +1,10 @@
+-- Write a query to return the first name of any singer who had an album 
+-- released under the Warner Bros label.
+
+-- Solution:
+
+SELECT DISTINCT singers.first_name
+FROM singers
+JOIN albums
+ON singers.id = albums.singer_id
+WHERE albums.label LIKE '%Warner Bros%';

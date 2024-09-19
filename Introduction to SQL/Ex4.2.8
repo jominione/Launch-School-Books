@@ -1,0 +1,12 @@
+-- Return the id of any order that includes Fries. Use table aliasing in your 
+-- query.
+
+-- Solution:
+
+SELECT o.id
+FROM orders AS o
+JOIN order_items AS oi
+ON o.id = oi.order_id
+JOIN products AS p
+ON oi.product_id = p.id
+WHERE p.product_name = 'Fries';
