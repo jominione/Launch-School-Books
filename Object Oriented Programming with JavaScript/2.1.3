@@ -1,0 +1,26 @@
+// Write a simple constructor function that creates objects that represent 
+// musical albums. Each album should have a title, artist, and release year. 
+// Create objects that represent the following 2 albums:
+
+// | Title                     | Artist          | Release Year
+// |---------------------------|-----------------|---------------
+// | Thriller                  | Michael Jackson | 1982
+// | The Dark Side of the Moon | Pink Floyd      | 1973
+
+// When you are done, identify the type of the objects created, the constructor 
+// function, and the instance objects.
+
+// Solution:
+
+function Album(title, artist, release) {
+  self.title = title;
+  self.artist = artist;
+  self.release = release;
+}
+
+let thriller = Album('Thriller', 'Michael Jackson', 1982);
+let dark = Album('The Dark Side of the Moon', 'Pink Floyd', 1973);
+
+// Both thriller and dark are type Album. The constructor function is Album 
+// function. The instance objects are the objects assigned to thriller and 
+// dark.

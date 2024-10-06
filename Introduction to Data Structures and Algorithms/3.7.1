@@ -1,0 +1,19 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  for (let i = 0; i < n; i++) {
+    console.log("Hello!");
+  }
+}
+
+// Solution: The number of steps required to complete an operation varies
+// by size of parameter n. Denoting the integer of n is N then the time 
+// complexity of the the function test is O(N).
+
+// Discussion: The time complexity of the function test is O(N) because the
+// loop runs n times, where n is the input size. The number of iterations
+// directly scales with the input size.
+
+// The space complexity of the function test is O(1) because it does not use
+// any additional sapce outside of the input size.
