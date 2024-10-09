@@ -1,0 +1,37 @@
+// Create a Book class with private fields title, author, and year. Provide 
+// getters for each field and a setter for the year field that raises a 
+// RangeError if year is before 1900.
+
+// Solution:
+
+class Book {
+  #title;
+  #author;
+  #year;
+
+  constructor(title, author, year) {
+    this.#title = title;
+    this.#author = author;
+    this.year = year; // Calling setter method
+  }
+
+  get title() {
+    return this.#title;
+  }
+
+  get author() {
+    return this.#author;
+  }
+
+  get year() {
+    return this.#year;
+  }
+
+  set year(year) {
+    if (typeof(year) === 'number' && year < 1900) {
+      this.#year = year;
+    } else {
+      throw new RangeError('Year is before 1900');
+    }
+  }
+}

@@ -31,13 +31,25 @@
 // Solution:
 
 class Person {
+
+  #name;
+  #age;
+
   constructor(name, age) {
-    this.name = name;
-    this.age = age;
+    this.#name = name;
+    this.age = age; // Call the setter to validate the data
   }
 
   showAge() {
-    console.log(this.age);
+    console.log(this.#age);
+  }
+
+  set age(age) {
+    if (typeof(age) === 'number' && age > 0) {
+      this.#age = age;
+    } else {
+      throw new Error(`Age must be positive`);
+    }
   }
 }
 
