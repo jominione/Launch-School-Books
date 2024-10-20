@@ -1,0 +1,19 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      sum += 1;
+    }
+  }
+  return sum;
+}
+
+// The time complexity of the function test is O(N^2). The inner loop increases
+// iterations witch each iteration of the outer loop until it approaches n,
+// so the number of iterations will grow quadratically with n.
+
+// The space complexity is O(1). The sum variable holds an integer value so
+// there is no additional space used that grows with n.

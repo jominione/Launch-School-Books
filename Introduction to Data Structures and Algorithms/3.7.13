@@ -1,0 +1,14 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  for (let i = 0; i < 2 * n; i++) {
+    console.log("Hello!");
+  }
+}
+
+// Solution: The time complexity of the function test is O(N). Although the
+// loop runs 2n times, we can simplify the time complexity by removing the
+// constant factor. Therefore, the time complexity is O(N).
+
+// Space complexity is O(1) as we are not using any additional space.

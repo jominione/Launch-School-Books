@@ -1,0 +1,45 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(new Array(n).fill(0));
+  }
+  return result;
+}
+
+// Solution: The time complexity of function test is O(N^2) due to the creation
+// of n arrays, each of size n.
+
+// The space complexity is O(N^2) because the results array grows quadratically
+// with the input size, holding n arrays of size n.
+
+// Let's explore the time complexity in detail:
+
+// * The loop iterates n times, where n is the input size.
+// * In each iteration of the loop, a new array of size n is created and filled 
+//   with zeros. The new Array(n).fill(0) operation itself consists of two 
+//   parts:
+//   * The creation of the array itself is typically considered an O(1) 
+//     operation since it essentially allocates memory for n elements but 
+//     doesn't initialize them.
+//   * The .fill(0) method operates linearly with respect to the size of the 
+//     array it's filling. This part of the operation is O(n) because it 
+//     involves setting each of the n elements in the newly created array to 0.
+
+// In summary, for each iteration of the loop, an array is created (O(1)) and 
+// then filled (O(n)). The dominant operation here is the filling of the array, 
+// which is O(n). Since this operation is repeated n times, the total time 
+// complexity is O(N^2).
+
+// Now the space complexity:
+
+// * The result variable is an array that grows as new arrays are pushed into 
+//   it.
+// * Each of the n iterations of the loop adds a new array of size n to the 
+//   result array.
+// * By the end of the loop, the result array holds n arrays, each containing 
+//   n elements. Therefore, the total space used is proportional to n * n 
+//   elements. Thus, the space complexity is O(N^2), as the space required 
+//   grows quadratically with the input size n.

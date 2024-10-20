@@ -1,0 +1,18 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  let count = 0;
+  for (let i = n; i > 1; i = Math.floor(i / 2)) {
+    for (let j = 0; j < n; j++) {
+      count++;
+    }
+  }
+  return count;
+}
+
+// Solution: The time complexity is O(NlogN). The outer loop runs logN as
+// it halves i in each iteration. The inner loop runs n times so the overall
+// time complexity is O(logN) * O(N) or O(N*logN).
+
+// Space complexity is O(1) as we are not using any additional space.

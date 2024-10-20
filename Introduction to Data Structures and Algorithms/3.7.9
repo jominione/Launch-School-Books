@@ -1,0 +1,20 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  let matrix = [];
+  for (let i = 0; i < n; i++) {
+    matrix[i] = [];
+    for (let j = 0; j < n; j++) {
+      matrix[i][j] = i + j;
+    }
+  }
+  return matrix;
+}
+
+// Solution: Time time complexity of the function test is O(N^2) because it
+// involves two nested loops, each running n times. As a result, the number
+// of operations is proportional to n * n = n^2.
+
+// The space complexity is O(N^2) because it creates a matrix of size n * n.
+// The space requires grows quadratically with the input size.

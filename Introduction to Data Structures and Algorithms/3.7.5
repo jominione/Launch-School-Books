@@ -1,0 +1,20 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(i);
+    for (let j = 0; j < n; j++) {
+      result[i] += j;
+    }
+  }
+  return result;
+}
+
+// Solution: The time complexity of the function test is O(N^2) due to the
+// nested loop structure, where both loops run n times. 
+
+// The space complexity of function test is O(N). Note that in the inner loop,
+// we are not adding new values to the result array but modifying existing
+// values. This is why the space complexity is not O(N^2).

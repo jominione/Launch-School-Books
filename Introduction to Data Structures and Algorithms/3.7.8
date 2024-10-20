@@ -1,0 +1,15 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  for (let i = n; i >= 1; i /= 2) {
+    console.log("Hello!");
+  }
+}
+
+// Solution: The time complexity if O(logN) because the loop divides the value
+// of i by 2 in each iteration. The number of iterations is determined by how
+// many times i can be divided by 2 before reaching 1.
+
+// The space complexity of the function test is O(1) because it does not use
+// any additional space.

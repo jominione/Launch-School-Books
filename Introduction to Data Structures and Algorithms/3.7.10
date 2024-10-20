@@ -1,0 +1,17 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 1; j < n; j *= 2) {
+      console.log("Hello!");
+    }
+  }
+}
+
+// Solution: The time complexity of the function test is O(NlogN) because it
+// involves two nested loops. The outer loop runs n times, and the inner loop
+// doubles the value of j in each iteration. Thus, the inner loop runs logN
+// times. The total number of operations is proportional to N * logN.
+
+// The space complexity is O(1) because it does not use any addtional space.

@@ -1,0 +1,16 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < 100; j++) {
+      console.log("Hello!");
+    }
+  }
+}
+
+// Solution: The time complexity of the function test is O(N) because the
+// outer loop runs n times and the inner loop runs a constant 100 times. The
+// constant factor does not affect the overall time complexity.
+
+// The space complexity is O(1) because it does not use any additional space.

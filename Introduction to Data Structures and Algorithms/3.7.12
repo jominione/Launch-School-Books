@@ -1,0 +1,29 @@
+// What is the time complexity of the function test? What is its space 
+// complexity?
+
+function test(n, m) {
+  for (let i = 0; i < n; i++) {
+    console.log("Hello!");
+  }
+  for (let j = 0; j < m; j++) {
+    console.log("World!");
+  }
+}
+
+// Solution: The time complexity of the function test is O(N) + O(M).
+
+// In this example, we have two separate loops, one iterating n times and
+// the other iterating m times. The time complexity of the first loop is O(N),
+// and the time complexity of the second loop is O(M). Since the loops are
+// iterating over different collections, we cannot directly combine or simplify
+// their time complexities.
+
+// Therefore, the time complexity is expressed as O(N) + O(M). This notation
+// emphasises that the time taken by the algorithm increases linearly with
+// the size of n and m separately.
+
+// Remember that if the values of n and m are not related or do not have a
+// fixed relationship, we cannot further simplify the time complexity
+// expression.
+
+// The space complexity is still O(1) as we are not using addtional space.
