@@ -1,0 +1,102 @@
+// Problem:
+
+// Given an array `nums` sorted in ascending order, determine
+// the minimum between the count of positive integers and the
+// count of negative integers.
+
+// Please note that the number `0` is neither positive nor negative.
+
+// Rules:
+//      Explicit Requirements:
+//        - The minimum is the smaller length of the length of 
+//          collection of positive integers and negative integers.
+//        - The number zero is neither positive nor negative.
+
+//      Implicit Requirements:
+//        - There can no positive integers or no negative integers.
+//        - There may be no zeros.
+//        - Return value if there is no negative integers or if no positive 
+//          integers is zero.
+//        - Corollary, empty arrays return zero.
+//        - Integers are not unique.
+
+// Input:
+// - Array of integers.
+
+// Output:
+// - Non-negative integer.
+
+
+// Questions:
+// - Is empty array a valid input?
+// - Are elements unique?
+
+
+// Data Structures: 
+
+// - Primitive values.
+
+// Algorithm:
+// - Find the index of biggest negative integer and assign as rightMost.
+// - Find the index of smallest positive integer and assign as leftMost.
+// - If input array is empty or one of rightMost or leftMost is null return 0.
+// - Define positiveLength = nums.slice(leftMost).length
+// - Define negativeLength = nums.slice(0, rightMost).length
+// - return Math.min(positiveLength, negativeLength)
+
+// Test Cases:
+
+console.log(minimumCount([-4, -3, -2, -1, 3, 4]) === 2);
+console.log(minimumCount([-3, 1, 2, 3, 4, 5]) === 1);
+console.log(minimumCount([-5, -4, -3, -2, -1]) === 0);
+console.log(minimumCount([1, 2, 3, 4, 5]) === 0);
+console.log(minimumCount([-2, -1, 1, 2]) === 2);
+console.log(minimumCount([-7, -5, -4, 1, 2, 6, 10]) === 3);
+console.log(minimumCount([-3, -2, -1, 0, 5, 6]) === 2);
+console.log(minimumCount([-1, 0, 1]) === 1);
+console.log(minimumCount([]) === 0);
+
+// All test cases should log true.
+
+// Implementation:
+
+function minimumCount(nums) {
+
+  if (nums.length === 0) return 0;
+  return Math.min(findNegIntegerCount(nums), findPosIntegerCount(nums));
+
+}
+
+function findNegIntegerCount(nums) {
+  let left = 0;
+  let right = nums.length - 1;
+  let leftMost = -1;             // Index of biggest negative integer.
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] < 0) {
+      leftMost = mid;
+      left = mid + 1;
+    } else {
+      right = mid - 1;      
+    }
+  }
+  return leftMost >= 0 ? nums.slice(0, leftMost + 1).length : 0;
+}
+
+function findPosIntegerCount(nums) {
+  let left = 0;
+  let right = nums.length - 1;
+  let rightMost = -1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] > 0) {
+      rightMost = mid;
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return rightMost >= 0 ? nums.slice(rightMost).length : 0;
+}

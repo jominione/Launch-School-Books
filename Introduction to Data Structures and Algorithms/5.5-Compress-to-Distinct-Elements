@@ -1,0 +1,103 @@
+// Problem:
+
+// Given a sorted array of integers, your task is to implement a function
+// `compressToDistinct` that modifies the array in-place to ensure
+// it starts with a sequence of distinct elements in their original order.
+// After making these modifications, the function should return
+// the count of these distinct elements.
+
+// The elements in the latter part of the array, after the distinct ones, 
+// are not important.
+
+// Example:
+
+// If the input array is [3, 3, 5, 7, 7, 8], there are four distinct elements: 
+// 3, 5, 7, and 8.
+// After modifying the array to place these distinct elements at the beginning,
+// the resulting array should look like this -> [3, 5, 7, 8, _, _].
+// The underscores (_) represent the elements that are no longer important.
+
+// You should name the function `compressToDistinct` for the tests to work 
+// correctly.
+
+// You can use the anchor/runner pointer strategy where anchor starts at index 
+// 0, and runner starts at index 1.
+
+// Rules:
+//      Explicit Requirements:
+//        - Input array will be sorted.
+//        - Input array will be mutated so that the array beings with distinct 
+//          integers of original array in original order and ends with repeated 
+//          integers at end of array replaced with _.
+//        - Return will be number of distinct integers.
+
+//      Implicit Requirements:
+//        - Integers can be non-positive.
+//        - Integers will always be sorted.
+//        - Integers will always be integers.
+//        - Array can have single element but not empty i.e. return 
+
+// Input:
+//  - Array of integers
+
+// Output:
+//  - Count of distinct integers.
+
+
+// Questions:
+//  - Can array contain non-integer elements?
+//  - Can the integers in the input array be non-positive?
+//  - Would an empty array be valid input?
+//  - Would an array with single integer be valid input?
+//  - What do you do if array is not sorted? Preserve order?
+
+
+// Data Structures: 
+
+
+
+
+
+// Algorithm:
+
+
+
+// Test Cases:
+
+function testCompressToDistinct(array, expectedLength) {
+  const originalReference = array;
+  const resultLength = compressToDistinct(array);
+  const isSameObject = originalReference === array;
+  const isLengthCorrect = resultLength === expectedLength;
+  const isModifiedCorrectly = array.slice(0, 
+                              expectedLength).every((val, idx, arr) => 
+                              idx === 0 || val > arr[idx - 1]);
+
+  return isSameObject && isLengthCorrect && isModifiedCorrectly;
+}
+
+console.log(testCompressToDistinct([3, 3, 5, 7, 7, 8], 4));
+console.log(testCompressToDistinct([1, 1, 2, 2, 2, 3, 4, 4, 5], 5));
+console.log(testCompressToDistinct([0], 1));
+console.log(testCompressToDistinct([-5, -3, -3, -1, 0, 0, 0, 1], 5));
+console.log(testCompressToDistinct([6, 6, 6, 6, 6, 6, 6], 1));
+
+// All tests should log true.
+
+
+// Implementation:
+
+function compressToDistinct(nums) {
+  if (nums.length <= 1) return nums.length;
+
+  let anchor = 0;
+
+  for (let runner = 1; runner < nums.length; runner++) {
+    if (nums[runner] !== nums[anchor]) {
+      anchor++;
+      nums[anchor] = nums[runner];
+    }
+  }
+
+  return anchor + 1;
+}

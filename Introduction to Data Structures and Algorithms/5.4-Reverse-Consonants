@@ -1,0 +1,191 @@
+// Problem:
+
+// Given a string `str`, reverse only all the consonants in the string and 
+// return it.
+// Consonants are all alphabetic characters except for the vowels `'a'`, 
+// `'e'`, `'i'`, `'o'`, and `'u'`, which can appear in both lower and upper 
+// cases.
+// The consonants can appear more than once in the string.
+
+// Hint 1: Use start-end pointer strategy.
+
+// Hint 2: The easiest way to find consonants is to create a string with all
+// consonants and check whether the character is included in that string.
+
+// Rules:
+//      Explicit Requirements:
+//        - Ignoring vowels, swap the position of consonants in a string
+//          in reverse order.
+//        - Do not change the case of the string.
+//        - Consonants can appear more than once in the string.
+
+//      Implicit Requirements:
+//        - Single or empty character strings are valid input string.
+//        - Preserve the case of the consonant when swapping positions, not
+//          the case at the index.
+
+// Input:
+//  - String
+
+// Output:
+//  - String
+
+
+// Questions:
+//  - Are single or empty character strings valid? Yes from test case.
+//  - Do I preserve the case of the index or the consonant? Consonant from test 
+//    case.
+
+// Test Cases:
+
+console.log(reverseConsonants("") === "");
+console.log(reverseConsonants("s") === "s");
+console.log(reverseConsonants("HELLO") === "LELHO");
+console.log(reverseConsonants("leetcode") === "deectole");
+console.log(reverseConsonants("example") === "elapmxe");
+console.log(reverseConsonants("Consonants") === "sotnonasnC");
+
+// All test cases should log true
+
+// Naive Approach:
+
+// Data Structures: 
+
+// Since strings are immutable, need to convert strings to array of letters
+// in order to mutate the order of the string.
+
+
+// Algorithm:
+
+// 1. Create a constant variable with string of both lower and uppercase 
+//    consonants.
+// 2. Use split method to turn string into array of letters and store in 
+//    variable.
+// 3. Use loop and .includes to check each letter of array if is a consonant.
+//    If true, increment counter variable by 1.
+//    a. end of loop if counter equals 0 or 1, return string.
+// 4. Outer loop over letters array from starting index incrementing. Set
+//    length of loop to equal to less than counter / 2. Use .includes to check 
+//    if letter is in consonants string. 
+//    a. If true, create inner loop.
+//    b. else increment until find consonant or end of loop.
+// 5. For inner loop, loop over letters array from end index decrementing. Set
+//    length of loop to equal or less than counter / 2. Use .includes to check 
+//    if letter is in consonants string. 
+//    a. If true, use .splice() to remove front consonant and insert end 
+//    consonant. Store removed consonant to temp variable and use splice() to
+//    insert into index of end consonant and remove end consonant.
+//    b. Else decrement until find consonant or end of loop.
+// 6. Using mutated letters array .join to create string and assign to
+//    results variable.
+// 7. Return results variable.
+
+// Implementation (using ChatGPT):
+
+function reverseConsonants(str) {
+  const consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+  let consonantChars = [];
+
+  // Step 1: Collect all consonants in the string
+  for (let char of str) {
+    if (consonants.includes(char)) {
+      consonantChars.push(char);
+    }
+  }
+
+  // Step 2: Reverse the array of consonants
+  consonantChars.reverse();
+
+  // Step 3: Rebuild the string with reversed consonants
+  let result = "";
+  let consonantIndex = 0;
+  for (let char of str) {
+    if (consonants.includes(char)) {
+      result += consonantChars[consonantIndex];
+      consonantIndex++;
+    } else {
+      result += char;
+    }
+  }
+
+  return result;
+}
+
+// Note:
+
+// Time Complexity: O(n), where n is the length of the string. This is because 
+// each character is processed a constant number of times.
+
+// Space Complexity: O(k), where k is the number of consonants in the string. 
+// We use extra space to store the consonants in an array.
+
+
+// Optimised Approach:
+
+// Data Structures: 
+
+// Algorithm:
+
+// 1. Create a constant variable with string of both lower and uppercase 
+//    consonants.
+// 2. Use split method to turn string into array of letters and store in 
+//    variable.
+// 3. Check if length of string is 0 or 1 and if true return str.
+// 4. Initialise start variable with 0 and end variable with letter array
+//    length - 1.
+// 5. Use while loop with condition that start is less end.
+//    a. initialise constant startConsonant as letter array at index of start
+//       as argument to consonants.includes().
+//    b. initialise constant endConsonant as letter array at index of start
+//       as argument to consonants.includes().
+//    c. if both startConsonant and endConsonant are true swap letters in
+//       letters array.
+//    d. else if startConsonant false, increment start by 1.
+//    e. else decrement end by 1.
+// 6. Using mutated letters array .join to create string and assign to
+//    results variable.
+// 7. Return results variable.
+
+// Implementation:
+
+function reverseConsonantsOptimised(str) {
+  const consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+  let letters = str.split('');
+
+  let start = 0;
+  let end = letters.length - 1;
+
+  while (start < end) {
+    let startConsonant = consonants.includes(letters[start]);
+    let endConsonant = consonants.includes(letters[end]);
+
+    if (!startConsonant) {
+      start++;
+      continue;
+    } else if (!endConsonant) {
+      end--;
+      continue;
+    } else {
+      [letters[start], letters[end]] = [letters[end], letters[start]];
+      start++;
+      end--;
+    }
+  }
+
+  let result = letters.join('');
+  return result;
+}
+
+// Note:
+
+// Time Complexity: O(n) (linear, based on the length of str)
+// Space Complexity: O(n) (for storing letters as an array of characters)
+
+// Test Cases for Optimised Solution:
+
+console.log(reverseConsonantsOptimised("") === "");
+console.log(reverseConsonantsOptimised("s") === "s");
+console.log(reverseConsonantsOptimised("HELLO") === "LELHO");
+console.log(reverseConsonantsOptimised("leetcode") === "deectole");
+console.log(reverseConsonantsOptimised("example") === "elapmxe");
+console.log(reverseConsonantsOptimised("Consonants") === "sotnonasnC");
