@@ -47,10 +47,10 @@ let list5 = createLinkedList([]);
 //        - 
 
 // Input:
-
+// - linked list;
 
 // Output:
-
+// - linked list;
 
 
 // Questions:
@@ -59,7 +59,7 @@ let list5 = createLinkedList([]);
 
 
 // Data Structures: 
-
+// - linked list;
 
 
 
@@ -79,8 +79,11 @@ printLinkedList(removeEverySecondNode(list5)); // Expected: null
 
 // Implementation:
 
-
-
-
-
-
+function removeEverySecondNode(head) {
+  let curr = head;
+  while (curr && curr.next) {
+    curr.next = curr.next.next;
+    curr = curr.next;
+  }
+  return head;
+}
