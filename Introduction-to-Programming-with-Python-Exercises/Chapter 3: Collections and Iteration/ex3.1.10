@@ -1,0 +1,5 @@
+names = { 'Chris', 'Clare', 'Karis', 'Karl', 'Max', 'Nick', 'Victor' }
+print(names)
+
+# May or may not print names alphabetically. Sets are unordered collections. Hence, the order in which 
+# members are shown when printing or iterating is arbitrary.

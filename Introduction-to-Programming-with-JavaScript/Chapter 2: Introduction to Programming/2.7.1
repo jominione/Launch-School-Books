@@ -1,0 +1,44 @@
+// In the following code, what are the final length values for array1, array2,
+// array3, array4, and array5?
+
+let array1 = [1, 2, undefined, 4];
+
+let array2 = [1];
+array2.length = 5;
+
+let array3 = [];
+array3[-1] = [1];
+
+let array4 = [1, 2, 3, 4, 5];
+array4.length = 3;
+
+let array5 = [];
+array5[100] = 3;
+
+// Solution:
+
+// array1.length => 4
+// The length is the highest index position that has a value, plus 1. In this
+// case, the highest index position that has a value is 3; add 1 to that, and
+// we get the length value of 4.
+
+// array2.length => 5
+// If you change an array's length property to a new, 
+// larger value, the array expands to the new size. The new elements do not 
+// get initialised. In general, JavaScript treats unset array elements as 
+// missing, but the length property includes the unset elements.
+
+// array3.length => 0
+// array3 => [, '-1': [1]]
+// The negative index element are properties on the array object so DO NOT 
+// count towards the length of the property.
+
+// array4.length => 3
+// If you change an array's length property to a new, smaller value, the array 
+// gets truncated; JavaScript removes all elements beyond the new final 
+// element.
+
+// array5.length => 101
+// The length is the highest index position that has a value, plus 1. In this
+// case, the highest index position that has a value is 100, so the length
+// is 101.

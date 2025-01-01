@@ -1,0 +1,41 @@
+// What does the following program log to the console? Why?
+
+let foo = {
+  a: 'hello',
+  b: 'world',
+};
+
+let qux = 'hello';
+
+function bar(argument1, argument2) {
+  argument1.a = 'hi';
+  argument2 = 'hi';
+}
+
+bar(foo, qux);
+
+// Solution:
+
+console.log(foo.a); // => 'hi'
+console.log(qux);   // => 'hello'
+
+// bar function when invoked mutates foo object but the argument qux is a
+// primitive that assigned to argument2 parameter which has local scope. Hence
+// once once invoked won't reassign qux which is outside of its scope.
+
+// This program logs 'hi' and 'hello' to the console. This is because objects 
+// are mutable and primitives are immutable.
+
+// When bar is invoked on line 13, argument1 is initialized to an object and 
+// argument2 is initialized to a string value.
+
+// Line 9 reassigns an object property (argument1.a), which will mutate the 
+// object. Line 10 reassigns a variable, which completely replaces the value of the local argument2 variable.
+
+// Thus, line 9 mutates foo by reassigning its a property to a new value 
+// ('hi'), and line 10's variable reassignment doesn't effect any variables 
+// outside of bar.
+
+// Because foo was mutated, the access to foo.a on line 15 logs 'hi'. On the 
+// other hand, the variable reassignment on line 10 does not mutate qux's 
+// value, so line 16 logs hello - the original value of the qux variable.

@@ -1,0 +1,12 @@
+# Without running the following code, what do you think it will do?
+
+def foo(first, second=3, third=2):
+    print(first)
+    print(second)
+    print(third)
+
+foo()
+
+# Will raise TypeError because foo is defined with three arguments with 
+# only last set with default values. Since Python is not passed any arguments
+# it will raise exception.

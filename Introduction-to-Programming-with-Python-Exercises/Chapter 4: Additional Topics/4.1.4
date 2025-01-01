@@ -1,0 +1,15 @@
+# Without running this code, what will it print? Why?
+
+dict1 = {
+    'a': [1, 2, 3],
+    'b': (4, 5, 6),
+}
+
+dict2 = dict(dict1)
+dict1['a'][1] = 42
+print(dict2['a'])
+
+# Solution: [1, 42, 3]. dict2 is a new object that is shallow copy of dict1.
+# Since 'a' points to a list object, mutating the value of 'a' in dict1 
+# will be reflected in dict2 because value 'a' also points to the same list
+# object as dict1.

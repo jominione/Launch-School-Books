@@ -1,0 +1,16 @@
+# Take a look at this code snippet:
+
+foo = 'bar'
+
+def set_foo():
+    foo = 'qux'
+
+set_foo()
+print(foo)
+
+# What does this program print? Why?
+
+# Solution: Program prints 'bar'. When you invoke set_foo it reassigns foo with
+# 'qux' but this variable isn't available when executing code that isn't part of
+# that function.
+# The print function searches the global namespace for foo.

@@ -1,0 +1,10 @@
+obj = 'ABcd'      # Reassign
+obj.upper()       # Neither
+obj = obj.lower() # Reassign
+print(len(obj))   # Neither
+obj = list(obj)   # Reassign
+obj.pop()         # Mutate
+obj[2] = 'X'      # Mutate
+obj.sort()        # Mutate
+set(obj)          # Neither
+obj = tuble(obj)  # Reassign

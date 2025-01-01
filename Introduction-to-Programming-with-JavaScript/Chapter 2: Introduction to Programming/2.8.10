@@ -1,0 +1,11 @@
+// How many primitive values are there in the following expression? Identify
+// them. How many objects are there in th expression? Identify those objects.
+
+[1, 2, ["a", ["b", false]], null, {}]
+
+// Solution:
+
+// Primitives: 1, 2, 'a', 'b', false, null. There are 6 values that primitives.
+// Objects: There 4 objects.
+// [1, 2, ["a", ["b", false]], null, {}], ["a", ["b", false]], ["b", false], 
+// {}.

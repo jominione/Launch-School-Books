@@ -1,0 +1,21 @@
+// Will this program produce an error when run? Why or why not?
+
+const FOO = 'bar';
+{
+  const FOO = 'qux';
+}
+
+console.log(FOO);
+
+// Solution: Will not raise error. Constant FOO is initialised on line 3. On
+// line 4 starts a block which creates a new scope for let variables. Line 5
+// declares a new constant named FOO that shadows the variable from line 3.
+// This second constant goes out of scope on line 6 when the block ends. That
+// brings FOO from line 3 back into scope so line 6 logs its value: bar.
+
+// For much the same reason as the previous exercise, this program doesn't 
+// raise an error, and it logs bar on line 6. One key difference, though,
+// is that we are using const instead of let, which may have led you to believe
+// an error would occur on line 3. However, since the two const variables are
+// separate entitities -- that is, the declaration on line 3 declares a 
+// completely new constant -- no error occurs.

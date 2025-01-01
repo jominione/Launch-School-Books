@@ -1,0 +1,20 @@
+// What does this code log to the console? Does executing the foo function
+// affect the output? Why or why not?
+
+let bar = 1;
+function foo() {
+  let bar = 2;
+}
+
+foo();
+console.log(bar);
+
+// Solution: Program will log 1. When foo function is defined it creates a
+// function scope. Within the function a variable bar is initialised. This is
+// not visible outside of the scope of the function. When log is called it
+// assumes the bar on line 1 to output.
+
+// The code logs 1 to the console. foo doesn't affect the value assigned to
+// bar on line 1 since JaveaScript functions create an inner scope. Thus,
+// bar variable on line 3 is not the same as the one on line 1. In the end,
+// foo() has no bearing on the final output.

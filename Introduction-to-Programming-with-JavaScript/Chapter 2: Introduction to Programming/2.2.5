@@ -1,0 +1,22 @@
+// Take a look at this code snippet:
+
+let foo = 'bar';
+{
+  let foo = 'qux';
+}
+
+console.log(foo);
+
+// What does this program log to the console? Why?
+
+// Solution: Log 'bar'. foo is initialised as 'bar' and is of global scope.
+// The foo initialised in the block statement has block scope and is not 
+// visible outside of the block.
+
+// The program logs bar. Line 1 initialises a variable named foo with the
+// value 'bar'. Line 2 starts a block, which creates a new scope for let
+// variables. The variable on line 1 is still visible at this point, but line
+// 3 declares a new variable named foo that shadows (hides) the variable from
+// line 1. This second variable gets initialised to 'qux', but it goes out
+// of scope on line 4 when the block ends. That brings foo from line 1 back
+// into scope, so line 6 logs its value: bar.

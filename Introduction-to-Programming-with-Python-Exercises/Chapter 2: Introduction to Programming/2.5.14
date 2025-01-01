@@ -1,0 +1,25 @@
+# Identify all of the identifiers on each line of the following code.
+
+def multiply(left, right):
+    return left * right
+
+def get_num(prompt):
+    return float(input(prompt))
+
+first_number = get_num('Enter the first number: ')
+second_number = get_num('Enter the second number: ')
+product = multiply(first_number, second_number)
+print(f'{first_number} * {second_number} = {product}')
+
+# Solution:
+# multiply: line 3, 11
+# left: line 3, 4
+# right: line 3, 4
+# get_num: line 6, 9, 10 
+# prompt: line 6, 7
+# first_number: line 9, 11, 12
+# second_number: line 10, 11, 12
+# product: line 11, 12
+# float: line 7
+# input: line 7
+# print: line 12

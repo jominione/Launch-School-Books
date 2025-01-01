@@ -1,0 +1,13 @@
+# Explain why the code below prints different values on lines 3 and 4.
+
+text = "It's probably pining for the fjords!"
+
+print(text[21:35].rfind('f'))   # 8
+print(text.rfind('f', 21, 35))  # 29
+
+# Solution:
+
+# The expression on line 5 first substrings of text and applies rfind to
+# find the index of first instance of 'f' in the substring.
+# The expression on line 6 applies rfind to the find the index of first 
+# instance of 'f' starting from index 21 of the whole string.

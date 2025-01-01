@@ -1,0 +1,14 @@
+// Without running the following code, what do you think it will output?
+
+function foo(bar, qux) {
+  console.log(bar);
+  console.log(qux);
+}
+
+foo('Hello');
+
+// Solution [Wrong]: Will throw an error. The function requires two arguments 
+// but when invoked line 8 is only given one, 'Hello'.
+
+// The qux variable inside foo gets initialised to undefined when we fail
+// to provide an explicit argument in the invocation.

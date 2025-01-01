@@ -1,0 +1,12 @@
+foo = 'bar'
+
+def set_foo():
+    foo = 'qux'
+
+set_foo()
+print(foo)
+
+# The progra prints 'bar' since the assignment inside of set_foo creates 
+# a variable that is local to the function.
+# That is foo variable inside set_fool is local to set_foo so does not change the value of foo outside
+# of function.

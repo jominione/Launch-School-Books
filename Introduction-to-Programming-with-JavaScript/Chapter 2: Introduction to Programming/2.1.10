@@ -1,0 +1,6 @@
+// What values does the following expression evaluate to?
+
+'foo' === 'Foo';
+
+// Solution: False. It evaluates false since case matters when comparing 
+// strings.

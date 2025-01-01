@@ -1,0 +1,21 @@
+# Write Python code to replace all the : characters in the string below
+# with +.
+
+info = 'xyz:*:42:42:Lee Kim:/home/xyz:/bin/zsh'
+
+# Try this problem using the methods you've learned about in this chapter.
+# Once you have that working, use the Python documentation for the str type
+# to find an alternative solution.
+
+# Solution:
+
+split_info = info.split(':')
+join_info = '+'.join(split_info)
+print(join_info)
+
+# Alternative Solution:
+
+info2 = 'xyz:*:42:42:Lee Kim:/home/xyz:/bin/zsh'
+
+new_info2 = info2.replace(':', '+')
+print(new_info2)

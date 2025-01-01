@@ -1,0 +1,15 @@
+// What does the following code log to the console?
+
+function scream(words) {
+  words = words + '!!!!';
+  return;
+  console.log(words);
+}
+
+scream('Yipeee');
+
+// Solution: Will not log anything. When scream function is invoked it returns
+// nothing. Function ends before console.log is invoked.
+
+// It doesn't log anything. The return on line 3 terminates the function before
+// it can log anything.

@@ -1,0 +1,17 @@
+# Assume that obj already has a value of 42 when the code below starts running.
+# Which of the subsequent statements reassign the variable? Which statements
+# mutate the value of the object that obj references? Which statements do
+# neither? If necessary, you can read the documentation.
+
+# Solution:
+
+obj = 'ABcd'        # Reassign to string
+obj.upper()         # Neither
+obj = obj.lower()   # Reassign to new string object
+print(len(obj))     # Neither
+obj = list(obj)     # Reassign to new list object
+obj.pop()           # Mutation
+obj[2] = 'X'        # Mutation
+obj.sort()          # Mutation
+set(obj)            # Neither
+obj = tuple(obj)    # Reassign
